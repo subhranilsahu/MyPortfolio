@@ -43,7 +43,7 @@ function GoldenObject() {
     <Float speed={1.5} rotationIntensity={0.25} floatIntensity={0.35}>
       <group ref={group}>
         <mesh scale={0.72}>
-          <torusKnotGeometry args={[1, 0.32, 180, 24]} />
+          <torusKnotGeometry args={[1, 0.32, 96, 16]} />
           <MeshDistortMaterial
             color="#c6ff00"
             metalness={0.85}
@@ -58,12 +58,14 @@ function GoldenObject() {
 }
 
 export default function HeroScene() {
+  const isMobile = window.matchMedia('(max-width: 700px)').matches
+
   return (
     <div className="hero-scene">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 45 }}
-        dpr={[1, 1.5]}
-        gl={{ antialias: true, alpha: true }}
+        dpr={isMobile ? 1 : [1, 1.5]}
+        gl={{ antialias: !isMobile, alpha: true, powerPreference: 'high-performance' }}
       >
         <ambientLight intensity={0.65} />
         <directionalLight position={[4, 5, 5]} intensity={1.5} />

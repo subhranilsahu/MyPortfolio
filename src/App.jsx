@@ -100,6 +100,17 @@ function App() {
     }
   }, [])
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
   const closeMenu = () => setMenuOpen(false)
 
   return (
@@ -114,7 +125,8 @@ function App() {
         <button
           className="menu-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation"
+          aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+          type="button" 
           aria-expanded={menuOpen}
         >
           <span />
