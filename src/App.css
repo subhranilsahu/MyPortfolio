@@ -3342,3 +3342,75 @@ button:not(:hover) {
   }
 }
 
+
+/* MOBILE — REMOVE 3D SCENE WITHOUT EMPTY SPACE */
+@media (max-width: 700px) {
+  .hero {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    padding-bottom: 64px;
+  }
+
+  .hero-scene,
+  .character-caption,
+  .hero-orbit {
+    display: none !important;
+  }
+}
+
+/* MOBILE — PREVENT HORIZONTAL SECTION OVERFLOW */
+@media (max-width: 700px) {
+  .hero,
+  .contact {
+    overflow-x: clip !important;
+  }
+}
+
+/* MOBILE — TIGHTER SECTION SPACING */
+@media (max-width: 700px) {
+  .intro,
+  .skills,
+  .projects,
+  .contact {
+    padding-top: 68px !important;
+    padding-bottom: 68px !important;
+  }
+
+  .section-heading {
+    margin-bottom: 32px !important;
+    gap: 18px !important;
+  }
+
+  .intro-grid,
+  .project-grid {
+    gap: 22px !important;
+  }
+
+  .skill-row {
+    margin-bottom: 10px;
+  }
+
+  .work-card {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .intro,
+  .skills,
+  .projects,
+  .contact {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .section-heading {
+    margin-bottom: 26px !important;
+  }
+
+  .intro-grid,
+  .project-grid {
+    gap: 18px !important;
+  }
+}
